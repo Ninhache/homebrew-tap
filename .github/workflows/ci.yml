@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: Homebrew/actions/setup-homebrew@main
+      # Tap this checkout, so the formulae under test are the ones from the commit.
+      - run: brew tap ninhache/tap "$GITHUB_WORKSPACE"
+      - run: brew install ninhache/tap/probe
+      - run: brew test ninhache/tap/probe
+      - run: brew audit --strict ninhache/tap/probe
