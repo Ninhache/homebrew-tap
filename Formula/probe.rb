@@ -1,8 +1,8 @@
 class Probe < Formula
   desc "Health checks for local dev services, from the CLI or a Makefile"
   homepage "https://github.com/Ninhache/probe"
-  url "https://registry.npmjs.org/@ninhache/probe/-/probe-0.10.0.tgz"
-  sha256 "76a53a126a3436b8d62695ce2e99390a361dd5776015be6174b773af4fd23a07"
+  url "https://registry.npmjs.org/@ninhache/probe/-/probe-0.11.0.tgz"
+  sha256 "a7e40d4858c9ef9ef98b55c3eaf3ae7b376f5e3710304a0501c3c64c466ef5aa"
   license "MIT"
 
   depends_on "node"
